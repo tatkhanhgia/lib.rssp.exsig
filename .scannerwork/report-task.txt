@@ -3,5 +3,5 @@ projectKey=tatkhanhgia_lib.rssp.exsig.Public
 serverUrl=https://sonarcloud.io
 serverVersion=8.0.0.39905
 dashboardUrl=https://sonarcloud.io/dashboard?id=tatkhanhgia_lib.rssp.exsig.Public
-ceTaskId=AYdzORHWhy0iNFN4XaYB
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AYdzORHWhy0iNFN4XaYB
+ceTaskId=AYdzXpnmTi8RdI6vWfIB
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AYdzXpnmTi8RdI6vWfIB

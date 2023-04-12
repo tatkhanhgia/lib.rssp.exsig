@@ -5,13 +5,14 @@
  */
 package vn.mobileid.util;
 
+import com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream; 
+import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -50,6 +51,7 @@ import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -129,7 +131,7 @@ public class Utils {
                 String alias = (String) aliases.nextElement();
                 X509Certificate cert = (X509Certificate) certStore.getCertificate(alias);
                 byte[] certBytes = cert.getEncoded();
-                try (FileOutputStream fos = new FileOutputStream(certPath.getPath() + "/" + cert.getSerialNumber() + ".cer")) {
+                try ( FileOutputStream fos = new FileOutputStream(certPath.getPath() + "/" + cert.getSerialNumber() + ".cer")) {
                     fos.write(certBytes);
                 }
             }
@@ -195,10 +197,10 @@ public class Utils {
 //        if(url.equals("http://public.rootca.gov.vn/crl/micnrca.crl")){
 //            url = "https://rootca.gov.vn/crl/micnrca.crl";
 //        }
-        HttpURLConnection con = (HttpURLConnection) getFinalURL(new URL(url)).openConnection();        
+        HttpURLConnection con = (HttpURLConnection) getFinalURL(new URL(url)).openConnection();
         ByteArrayOutputStream bout;
-        
-        try (BufferedInputStream inp = new BufferedInputStream(con.getInputStream())) {
+
+        try ( BufferedInputStream inp = new BufferedInputStream(con.getInputStream())) {
             byte[] buf = new byte[1024];
             bout = new ByteArrayOutputStream();
             while (true) {
@@ -209,7 +211,7 @@ public class Utils {
                 bout.write(buf, 0, n);
             }
         }
-        try (FileOutputStream fos = new FileOutputStream(localPath + "/crl/" + crlFile + ".crl")) {
+        try ( FileOutputStream fos = new FileOutputStream(localPath + "/crl/" + crlFile + ".crl")) {
             fos.write(bout.toByteArray());
         } catch (Exception ex) {
             throw new Exception("Can't save crls : " + ex.getMessage());
@@ -231,13 +233,13 @@ public class Utils {
             if (crlDistributionPointDerEncodedArray != null) {
 
                 DEROctetString dosCrlDP;
-                try (ASN1InputStream oAsnInStream = new ASN1InputStream(new ByteArrayInputStream(crlDistributionPointDerEncodedArray))) {
+                try ( ASN1InputStream oAsnInStream = new ASN1InputStream(new ByteArrayInputStream(crlDistributionPointDerEncodedArray))) {
                     ASN1Primitive derObjCrlDP = oAsnInStream.readObject();
                     dosCrlDP = (DEROctetString) derObjCrlDP;
                 }
                 byte[] crldpExtOctets = dosCrlDP.getOctets();
                 CRLDistPoint distPoint;
-                try (ASN1InputStream oAsnInStream2 = new ASN1InputStream(new ByteArrayInputStream(crldpExtOctets))) {
+                try ( ASN1InputStream oAsnInStream2 = new ASN1InputStream(new ByteArrayInputStream(crldpExtOctets))) {
                     ASN1Primitive derObj2 = oAsnInStream2.readObject();
                     distPoint = CRLDistPoint.getInstance(derObj2);
                 }
@@ -356,13 +358,13 @@ public class Utils {
             List<X509Certificate> certList = Utils.getCertPath(certificate);
             List<X509CRL> crlList = getCrlFormCerts(Utils.getCertPath(certificate));
             return Utils.getCertPath(certificate, true, Calendar.getInstance().getTime(), certList, crlList);
-            
+
         } catch (Exception ex) {
             ex.printStackTrace();
             return null;
         }
     }
-    
+
     public static String timeMilsToString(long timeMils) {
         Date date = new Date(timeMils);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
@@ -386,7 +388,9 @@ public class Utils {
     }
 
     public static void printXmlDocument(Document xmlDocument) throws TransformerConfigurationException, TransformerException {
-        TransformerFactory tf = TransformerFactory.newInstance();
+        TransformerFactory tf = javax.xml.transform.TransformerFactory.newInstance();
+        tf.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+        tf.setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");
         Transformer transformer;
         transformer = tf.newTransformer();
         StringWriter writer = new StringWriter();
@@ -398,10 +402,12 @@ public class Utils {
     }
 
     public static void writeXmlDocument(Document xmlDocument, String fileName) throws Exception {
-        TransformerFactory tFactory = TransformerFactory.newInstance();
+        TransformerFactory tFactory = javax.xml.transform.TransformerFactory.newInstance();
+        tFactory.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+        tFactory.setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");
         Transformer transformer = tFactory.newTransformer();
         DOMSource source = new DOMSource(xmlDocument);
-        try (FileOutputStream fos = new FileOutputStream(fileName)) {
+        try ( FileOutputStream fos = new FileOutputStream(fileName)) {
             StreamResult result = new StreamResult(fos);
             transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
             System.out.println(2);
@@ -410,14 +416,16 @@ public class Utils {
     }
 
     public static byte[] writeXmlDocument(Document xmlDocument) throws Exception {
-        TransformerFactory tFactory = TransformerFactory.newInstance();
+        TransformerFactory tFactory = javax.xml.transform.TransformerFactory.newInstance();
+        tFactory.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+        tFactory.setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");
         Transformer transformer = tFactory.newTransformer();
         DOMSource source = new DOMSource(xmlDocument);
         byte[] data;
-        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+        try ( ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
             StreamResult result = new StreamResult(baos);
             transformer.setOutputProperty(OutputKeys.STANDALONE, "yes");
-            transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");            
+            transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
             transformer.transform(source, result);
             data = baos.toByteArray();
         }
@@ -427,6 +435,7 @@ public class Utils {
     public static Document getXmlDocument(byte[] data) throws SAXException, ParserConfigurationException, IOException {
         ByteArrayInputStream bais = new ByteArrayInputStream(data);
         DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
+        docBuilderFactory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
         docBuilderFactory.setNamespaceAware(true);
         DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
         return docBuilder.parse(bais);
@@ -434,6 +443,7 @@ public class Utils {
 
     public static Document getNewXmlDocument() throws SAXException, ParserConfigurationException, IOException {
         DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
+        docBuilderFactory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
         docBuilderFactory.setNamespaceAware(true);
         DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
         return docBuilder.newDocument();
@@ -441,7 +451,7 @@ public class Utils {
 
     static byte[] inputStreamToByteArray(InputStream inputStream) {
         ByteArrayOutputStream bout;
-        try (BufferedInputStream inp = new BufferedInputStream(inputStream)) {
+        try ( BufferedInputStream inp = new BufferedInputStream(inputStream)) {
             byte[] buf = new byte[1024];
             bout = new ByteArrayOutputStream();
             while (true) {
@@ -481,10 +491,9 @@ public class Utils {
             //@Deprecated => Using another method
             if (x509Cert.getIssuerDN().equals(x509Cert.getSubjectDN())) {
                 rootCerts.add(new TrustAnchor(x509Cert, null));
-            } 
-//            if (x509Cert.getIssuerX500Principal().equals(x509Cert.getSubjectX500Principal())) {
-//                rootCerts.add(new TrustAnchor(x509Cert, null));
-//            } 
+            } //            if (x509Cert.getIssuerX500Principal().equals(x509Cert.getSubjectX500Principal())) {
+            //                rootCerts.add(new TrustAnchor(x509Cert, null));
+            //            } 
             else {
                 newCertList.add(x509Cert);
             }
@@ -574,5 +583,4 @@ public class Utils {
         return org.bouncycastle.util.encoders.Base64.toBase64String(hashedString);
     }
 
-    
 }

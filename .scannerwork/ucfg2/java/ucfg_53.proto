@@ -1,14 +1,14 @@
 
 ?vn.mobileid.util.Utils#getXmlDocument([B)Lorg/w3c/dom/Document;†
-ìC:/Users/Admin/Documents/NetBeansProjects/File_Certificate_P12/Library_RSSP_SDK/ProjectRSSP_20230411/lib.rssp.exsig/src/vn/mobileid/util/Utils.java´ ´()"1*ò
+ìC:/Users/Admin/Documents/NetBeansProjects/File_Certificate_P12/Library_RSSP_SDK/ProjectRSSP_20230411/lib.rssp.exsig/src/vn/mobileid/util/Utils.java≥ ≥()"1*˜
 1
-¨= ¨(APN
+¥= ¥(APN
 
-¨( ¨(<"
+¥( ¥(<"
 %0java.io.ByteArrayInputStream"java.io.ByteArrayInputStreamØ
 ¨
 
-¨$ ¨(B
+¥$ ¥(B
 %1"(java.io.ByteArrayInputStream#<init>([B)V*@
 
 __unknown_file ($
@@ -20,7 +20,7 @@
 databyte[]|
 z
 
-¨ ¨(C$
+¥ ¥(C$
 baisjava.io.ByteArrayInputStream"__id*@
 
 __unknown_file ($
@@ -28,23 +28,36 @@ z
 %0java.io.ByteArrayInputStreamÎ
 Ë
 
-≠3 ≠(W.
+µ3 µ(W.
 %2(javax.xml.parsers.DocumentBuilderFactory"`javax.xml.parsers.DocumentBuilderFactory#newInstance()Ljavax/xml/parsers/DocumentBuilderFactory;*H
 
 __unknown_file (,"*
 (javax.xml.parsers.DocumentBuilderFactory¢
 ü
 
-≠ ≠(X=
+µ µ(X=
 docBuilderFactory(javax.xml.parsers.DocumentBuilderFactory"__id*L
 
 __unknown_file (0
 .
-%2(javax.xml.parsers.DocumentBuilderFactoryÌ
+%2(javax.xml.parsers.DocumentBuilderFactory‹Ÿ
 
-Æ Æ(1
+∂ ∂(b
 
-%3void">javax.xml.parsers.DocumentBuilderFactory#setNamespaceAware(Z)V*[
+%3void"Ijavax.xml.parsers.DocumentBuilderFactory#setFeature(Ljava/lang/String;Z)V*[
+
+__unknown_file (?
+=
+docBuilderFactory(javax.xml.parsers.DocumentBuilderFactory*T
+
+__unknown_file (86
+4http://apache.org/xml/features/disallow-doctype-decl* 
+
+__unknown_file (22setFeature(Ljava/lang/String;Z)Ì
+
+∑ ∑(1
+
+%4void">javax.xml.parsers.DocumentBuilderFactory#setNamespaceAware(Z)V*[
 
 __unknown_file (?
 =
@@ -52,24 +65,24 @@ z
 
 __unknown_file (22setNamespaceAware(Z)çä
 
-Ø% Ø(K'
-%4!javax.xml.parsers.DocumentBuilder"`javax.xml.parsers.DocumentBuilderFactory#newDocumentBuilder()Ljavax/xml/parsers/DocumentBuilder;*[
+∏% ∏(K'
+%5!javax.xml.parsers.DocumentBuilder"`javax.xml.parsers.DocumentBuilderFactory#newDocumentBuilder()Ljavax/xml/parsers/DocumentBuilder;*[
 
 __unknown_file (?
 =
 docBuilderFactory(javax.xml.parsers.DocumentBuilderFactory2newDocumentBuilder()ç
 ä
 
-Ø Ø(L/
+∏ ∏(L/
 
 docBuilder!javax.xml.parsers.DocumentBuilder"__id*E
 
 __unknown_file ()
 '
-%4!javax.xml.parsers.DocumentBuilder≤Ø
+%5!javax.xml.parsers.DocumentBuilder≤Ø
 
-∞ ∞(%
-%5org.w3c.dom.Document"Tjavax.xml.parsers.DocumentBuilder#parse(Ljava/io/InputStream;)Lorg/w3c/dom/Document;*M
+π π(%
+%6org.w3c.dom.Document"Tjavax.xml.parsers.DocumentBuilder#parse(Ljava/io/InputStream;)Lorg/w3c/dom/Document;*M
 
 __unknown_file (1
 /
@@ -80,10 +93,10 @@ docBuilder!javax.xml.parsers.DocumentBuilder*B
 $
 baisjava.io.ByteArrayInputStream2parse(Ljava/io/InputStream;)"*
 
-∞ ∞(&
+π π(&
 
-%5org.w3c.dom.Document:
+%6org.w3c.dom.Document:
 
-´* ´(5
+≥* ≥(5
 databyte[]B"
 vn.mobileid.util.UtilsH

@@ -1,28 +1,40 @@
 
 @vn.mobileid.util.Utils#getNewXmlDocument()Lorg/w3c/dom/Document;†
-ìC:/Users/Admin/Documents/NetBeansProjects/File_Certificate_P12/Library_RSSP_SDK/ProjectRSSP_20230411/lib.rssp.exsig/src/vn/mobileid/util/Utils.java≥ ≥(,"1*¥
-
+ìC:/Users/Admin/Documents/NetBeansProjects/File_Certificate_P12/Library_RSSP_SDK/ProjectRSSP_20230411/lib.rssp.exsig/src/vn/mobileid/util/Utils.javaº º(,"1*ì
 1
-¥3 ¥(IÎ
+Ω3 Ω(IÎ
 Ë
 
-¥3 ¥(W.
+Ω3 Ω(W.
 %0(javax.xml.parsers.DocumentBuilderFactory"`javax.xml.parsers.DocumentBuilderFactory#newInstance()Ljavax/xml/parsers/DocumentBuilderFactory;*H
 
 __unknown_file (,"*
 (javax.xml.parsers.DocumentBuilderFactory¢
 ü
 
-¥ ¥(X=
+Ω Ω(X=
 docBuilderFactory(javax.xml.parsers.DocumentBuilderFactory"__id*L
 
 __unknown_file (0
 .
-%0(javax.xml.parsers.DocumentBuilderFactoryÌ
+%0(javax.xml.parsers.DocumentBuilderFactory‹Ÿ
 
-µ µ(1
+æ æ(b
 
-%1void">javax.xml.parsers.DocumentBuilderFactory#setNamespaceAware(Z)V*[
+%1void"Ijavax.xml.parsers.DocumentBuilderFactory#setFeature(Ljava/lang/String;Z)V*[
+
+__unknown_file (?
+=
+docBuilderFactory(javax.xml.parsers.DocumentBuilderFactory*T
+
+__unknown_file (86
+4http://apache.org/xml/features/disallow-doctype-decl* 
+
+__unknown_file (22setFeature(Ljava/lang/String;Z)Ì
+
+ø ø(1
+
+%2void">javax.xml.parsers.DocumentBuilderFactory#setNamespaceAware(Z)V*[
 
 __unknown_file (?
 =
@@ -30,31 +42,31 @@
 
 __unknown_file (22setNamespaceAware(Z)çä
 
-∂% ∂(K'
-%2!javax.xml.parsers.DocumentBuilder"`javax.xml.parsers.DocumentBuilderFactory#newDocumentBuilder()Ljavax/xml/parsers/DocumentBuilder;*[
+¿% ¿(K'
+%3!javax.xml.parsers.DocumentBuilder"`javax.xml.parsers.DocumentBuilderFactory#newDocumentBuilder()Ljavax/xml/parsers/DocumentBuilder;*[
 
 __unknown_file (?
 =
 docBuilderFactory(javax.xml.parsers.DocumentBuilderFactory2newDocumentBuilder()ç
 ä
 
-∂ ∂(L/
+¿ ¿(L/
 
 docBuilder!javax.xml.parsers.DocumentBuilder"__id*E
 
 __unknown_file ()
 '
-%2!javax.xml.parsers.DocumentBuilder–Õ
+%3!javax.xml.parsers.DocumentBuilder–Õ
 
-∑ ∑('
-%3org.w3c.dom.Document"Ejavax.xml.parsers.DocumentBuilder#newDocument()Lorg/w3c/dom/Document;*M
+¡ ¡('
+%4org.w3c.dom.Document"Ejavax.xml.parsers.DocumentBuilder#newDocument()Lorg/w3c/dom/Document;*M
 
 __unknown_file (1
 /
 
 docBuilder!javax.xml.parsers.DocumentBuilder2newDocument()"*
 
-∑ ∑((
+¡ ¡((
 
-%3org.w3c.dom.DocumentB"
+%4org.w3c.dom.DocumentB"
 vn.mobileid.util.UtilsH

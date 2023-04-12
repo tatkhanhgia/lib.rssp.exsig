@@ -470,6 +470,7 @@ public class Utils {
 
     public static Document loadXmlDocument(byte[] src) throws ParserConfigurationException, SAXException, IOException {
         DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
+        docBuilderFactory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
         docBuilderFactory.setNamespaceAware(true);
         DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
         return docBuilder.parse(new ByteArrayInputStream(src));

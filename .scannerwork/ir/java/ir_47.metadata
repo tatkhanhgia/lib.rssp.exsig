@@ -1,0 +1,4 @@
+vn.mobileid.util.Utils#loadXmlDocument([B)Lorg/w3c/dom/Document;
+javax.xml.parsers.DocumentBuilderFactory#newInstance()Ljavax/xml/parsers/DocumentBuilderFactory;
+java.io.ByteArrayInputStream#instance-init#
+java.io.ByteArrayInputStream#<init>([B)V

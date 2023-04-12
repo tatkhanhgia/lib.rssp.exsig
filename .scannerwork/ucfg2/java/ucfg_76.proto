@@ -1,0 +1,15 @@
+
+Zvn.mobileid.exsig.VerifyResult#getSigningCertificate()Ljava/security/cert/X509Certificate;¦
+›C:/Users/Admin/Documents/NetBeansProjects/File_Certificate_P12/Library_RSSP_SDK/ProjectRSSP_20230411/lib.rssp.exsig/src/vn/mobileid/exsig/VerifyResult.java, ,(0"1*Ý
+1- -(!•
+’
+- -(!(
+%0"java.security.cert.X509Certificate"__id*V
+
+__unknown_file (:*8 
+vn.mobileid.exsig.VerifyResult"
+signingCertificate"6
+- -("*
+(
+%0"java.security.cert.X509CertificateB" 
+vn.mobileid.exsig.VerifyResultH

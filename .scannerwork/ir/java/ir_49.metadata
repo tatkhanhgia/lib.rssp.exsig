@@ -1,0 +1,5 @@
+vn.mobileid.util.Utils#addTrustStore(Ljava/lang/String;)V
+null
+java.io.ByteArrayInputStream#instance-init#
+java.io.ByteArrayInputStream#<init>([B)V
+vn.mobileid.util.Utils#hashSha256([B)Ljava/lang/String;

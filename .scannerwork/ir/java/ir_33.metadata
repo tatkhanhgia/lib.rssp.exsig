@@ -1,0 +1,2 @@
+vn.mobileid.util.FileSystemDirectoryCertStore#hasExt(Ljava/io/File;[Ljava/lang/String;)Z
+java.lang.String#endsWith(Ljava/lang/String;)Z

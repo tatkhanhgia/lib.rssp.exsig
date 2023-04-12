@@ -1,0 +1,2 @@
+vn.mobileid.util.Utils#getCertPath(Ljava/security/cert/X509Certificate;ZLjava/util/Date;Ljava/util/List;)Ljava/util/List;
+vn.mobileid.util.Utils#getCertPath(Ljava/security/cert/X509Certificate;ZLjava/util/Date;Ljava/util/List;Ljava/util/List;)Ljava/util/List;

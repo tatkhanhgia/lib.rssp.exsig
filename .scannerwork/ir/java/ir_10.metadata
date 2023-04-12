@@ -1,0 +1,7 @@
+vn.mobileid.exsig.Profile#sign(Lvn/mobileid/exsig/SigningMethodSync;Ljava/util/List;)Ljava/util/List;
+java.lang.NullPointerException#<init>(Ljava/lang/String;)V
+java.lang.NullPointerException#instance-init#
+==
+generateHash vn.mobileid.exsig.Profile#generateHash(Ljava/util/List;)V
+initCerts vn.mobileid.exsig.Profile#initCerts(Ljava/util/List;)V
+appendSignautre vn.mobileid.exsig.Profile#appendSignautre(Ljava/util/List;)Ljava/util/List;

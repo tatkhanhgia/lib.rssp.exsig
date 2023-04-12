@@ -32,22 +32,22 @@ public abstract class Profile implements Serializable {
 
     protected transient int ltvSize = 0;
     protected transient int tsaSize = 0;
-    protected Form form;
+    protected transient Form form;
 
     protected String signatureId;
     protected Algorithm algorithm;
-    protected List<X509Certificate> certificates;
-    protected List<String> passwordList;
+    protected transient List<X509Certificate> certificates;
+    protected transient List<String> passwordList;
     protected String[] tsaData;
     protected String bearer;
     protected String version;
 
     protected long timeMillis = Calendar.getInstance().getTimeInMillis();
 
-    protected List<byte[]> tempDataList = new ArrayList<>();
-    protected List<String> hashList = new ArrayList<>();
-    protected List<byte[]> crls;
-    protected List<byte[]> otherList = new ArrayList<>();
+    protected  transient List<byte[]> tempDataList = new ArrayList<>();
+    protected transient List<String> hashList = new ArrayList<>();
+    protected transient List<byte[]> crls;
+    protected transient List<byte[]> otherList = new ArrayList<>();
 
     protected byte[] ocsp;
     protected String timeFormat = "yyyy-MM-dd'T'HH:mm:ss";
@@ -139,7 +139,7 @@ public abstract class Profile implements Serializable {
                             certificates = Utils.getCertPath(certificates.get(0));
                         }
 
-                        if (form.isRevocation()) {
+                        if ( form != null && form.isRevocation()) {
                             crls = new ArrayList<>();
                             List<X509CRL> crlList = Utils.getCrlFormCerts(certificates);
                             for (X509CRL crl : crlList) {

@@ -1,0 +1,6 @@
+vn.mobileid.util.Utils#getCertificatePath(Ljava/security/cert/X509Certificate;)Ljava/util/List;
+java.util.Calendar#getInstance()Ljava/util/Calendar;
+vn.mobileid.util.Utils#getCertPath(Ljava/security/cert/X509Certificate;ZLjava/util/Date;Ljava/util/List;Ljava/util/List;)Ljava/util/List;
+vn.mobileid.util.Utils#getCertPath(Ljava/security/cert/X509Certificate;)Ljava/util/ArrayList;
+vn.mobileid.util.Utils#getCrlFormCerts(Ljava/util/List;)Ljava/util/List;
+java.util.Calendar#getTime()Ljava/util/Date;

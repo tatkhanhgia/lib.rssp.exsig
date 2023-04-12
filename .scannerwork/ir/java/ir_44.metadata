@@ -1,0 +1,9 @@
+vn.mobileid.util.Utils#printXmlDocument(Lorg/w3c/dom/Document;)V
+java.io.StringWriter#<init>()V
+javax.xml.transform.dom.DOMSource#<init>(Lorg/w3c/dom/Node;)V
+javax.xml.transform.stream.StreamResult#instance-init#
+java.lang.StringBuffer#toString()Ljava/lang/String;
+javax.xml.transform.TransformerFactory#newInstance()Ljavax/xml/transform/TransformerFactory;
+javax.xml.transform.stream.StreamResult#<init>(Ljava/io/Writer;)V
+java.io.StringWriter#instance-init#
+javax.xml.transform.dom.DOMSource#instance-init#

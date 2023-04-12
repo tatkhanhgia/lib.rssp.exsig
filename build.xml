@@ -7,7 +7,7 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="lib.rssp.exsig" default="default" basedir=".">
+<project name="lib.rssp.exsig" default="all" basedir="." xmlns:sonar="antlib:org.sonar.ant">
     <description>Builds, tests, and runs the project lib.rssp.exsig.</description>
     <import file="nbproject/build-impl.xml"/>
     <!--
@@ -70,4 +70,50 @@
     nbproject/build-impl.xml file. 
 
     -->
+	
+	
+	<!-- ========= Define the main properties of this project ========= -->
+	<property name="src.dir" value="src" />
+	<property name="build.dir" value="target" />
+	<property name="classes.dir" value="${build.dir}/classes" />
+	
+	<!-- Define the SonarQube global properties (the most usual way is to pass these properties via the command line) -->
+	<property name="sonar.host.url" value="https://sonarcloud.io" />
+
+	<!-- Define the Sonar properties -->
+	<property name="sonar.projectKey" value="tatkhanhgia_lib.rssp.exsig.Public" />
+	<property name="sonar.projectName" value="Example of SonarQube Scanner for Ant Usage" />
+	<property name="sonar.projectVersion" value="1.0" />
+	<property name="sonar.sources" value="src" />
+	<property name="sonar.binaries" value="target" />
+	<property name="sonar.sourceEncoding" value="UTF-8" />
+	
+	<!-- ========= Define "regular" targets: clean, compile, ... ========= -->
+	<target name="clean">
+		<delete dir="${build.dir}" />
+	</target>
+
+	<target name="init">
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${classes.dir}" />
+	</target>
+
+	<target name="compile" depends="init">
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" fork="true" debug="true" includeAntRuntime="false" />
+	</target>
+
+	<!-- ========= Define SonarQube Scanner for Ant Target ========= -->
+	<target name="sonar" depends="compile">
+		<taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
+			<!-- Update the following line, or put the "sonar-ant-task-*.jar" file in your "$HOME/.ant/lib" folder -->
+			<classpath path="path/to/sonar/ant/task/lib/sonarqube-ant-task-*.jar" />
+		</taskdef>
+		
+		<!-- Execute SonarQube Scanner for Ant Analysis -->
+		<sonar:sonar />
+	</target>
+
+	<!-- ========= The main target "all" ========= -->
+	<target name="all" depends="clean,compile,sonar" />
+	
 </project>

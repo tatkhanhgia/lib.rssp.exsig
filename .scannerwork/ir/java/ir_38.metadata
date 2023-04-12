@@ -1,0 +1,4 @@
+vn.mobileid.util.Utils#loadFile(Ljava/lang/String;)[B
+java.io.File#<init>(Ljava/lang/String;)V
+java.io.File#instance-init#
+java.nio.file.Files#readAllBytes(Ljava/nio/file/Path;)[B

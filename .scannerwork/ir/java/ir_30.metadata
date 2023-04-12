@@ -1,0 +1,4 @@
+vn.mobileid.util.FileSystemDirectoryCertStore#<init>(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V
+java.security.cert.CertificateFactory#getInstance(Ljava/lang/String;)Ljava/security/cert/CertificateFactory;
+==
+FileSystemDirectoryCertStore vn.mobileid.util.FileSystemDirectoryCertStore#<init>(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;Ljava/security/cert/CertificateFactory;)V

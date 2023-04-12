@@ -1,0 +1,2 @@
+vn.mobileid.util.Utils#hashSha256([B)Ljava/lang/String;
+java.security.MessageDigest#getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;

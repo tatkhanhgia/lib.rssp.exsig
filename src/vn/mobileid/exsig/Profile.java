@@ -28,31 +28,34 @@ import org.bouncycastle.util.encoders.Base64;
  *
  * @author USER
  */
-public abstract class Profile implements Serializable {
+ public abstract class Profile implements Serializable {
 
     protected transient int ltvSize = 0;
     protected transient int tsaSize = 0;
-    protected transient Form form;
+    protected Form form;
 
     protected String signatureId;
     protected Algorithm algorithm;
-    protected transient List<X509Certificate> certificates;
-    protected transient List<String> passwordList;
+    protected List<X509Certificate> certificates;
+    protected List<String> passwordList;
     protected String[] tsaData;
     protected String bearer;
     protected String version;
 
     protected long timeMillis = Calendar.getInstance().getTimeInMillis();
 
-    protected  transient List<byte[]> tempDataList = new ArrayList<>();
-    protected transient List<String> hashList = new ArrayList<>();
-    protected transient List<byte[]> crls;
-    protected transient List<byte[]> otherList = new ArrayList<>();
+    public  List<byte[]> tempDataList = new ArrayList<>();
+    public  List<String> hashList = new ArrayList<>();
+    public  List<byte[]> crls;
+    public  List<byte[]> otherList = new ArrayList<>();
 
     protected byte[] ocsp;
     protected String timeFormat = "yyyy-MM-dd'T'HH:mm:ss";
 
     protected transient boolean rootCertificate = false;
+
+    public Profile() {
+    }
 
     protected Profile(final Form form, final Algorithm algorithm) throws NullPointerException {
         if (form == null) {
@@ -120,7 +123,6 @@ public abstract class Profile implements Serializable {
                     }
 
                     boolean loadRevocation = rootCertificate;
-                    
 
                     if (form != null) {
                         if (form.isTsa()) {
@@ -139,7 +141,7 @@ public abstract class Profile implements Serializable {
                             certificates = Utils.getCertPath(certificates.get(0));
                         }
 
-                        if ( form != null && form.isRevocation()) {
+                        if (form != null && form.isRevocation()) {
                             crls = new ArrayList<>();
                             List<X509CRL> crlList = Utils.getCrlFormCerts(certificates);
                             for (X509CRL crl : crlList) {
@@ -170,7 +172,7 @@ public abstract class Profile implements Serializable {
         signingMethod.generateTempFile(hashList);
         try {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            try (ObjectOutputStream objectOut = new ObjectOutputStream(baos)) {
+            try ( ObjectOutputStream objectOut = new ObjectOutputStream(baos)) {
                 objectOut.writeObject(this);
             }
             return baos.toByteArray();
@@ -184,16 +186,16 @@ public abstract class Profile implements Serializable {
         if (signingMethod == null) {
             throw new NullPointerException("SigningMethod is null");
         }
-       
+
         initCerts(signingMethod.getCert());
-        generateHash(dataToBeSign);                        
+        generateHash(dataToBeSign);
         return appendSignautre(signingMethod.sign(hashList));
     }
 
     public static List<byte[]> sign(SigningMethodAsync signingMethod, byte[] temp) throws Exception {
         try {
             Profile profile;
-            try (ByteArrayInputStream bais = new ByteArrayInputStream(temp)) {
+            try ( ByteArrayInputStream bais = new ByteArrayInputStream(temp)) {
                 ObjectInputStream oi = new ObjectInputStream(bais);
                 profile = (Profile) oi.readObject();
             }
@@ -205,6 +207,21 @@ public abstract class Profile implements Serializable {
 
     abstract List<byte[]> appendSignautre(List<String> signatureList) throws Exception;
 
-    abstract void generateHash(List<byte[]> dataToBeSign) throws Exception;   
+    abstract void generateHash(List<byte[]> dataToBeSign) throws Exception;
+
+    public int getTempDataList() {
+        return this.tempDataList.size();
+    }
     
+    public void setTempDataList(List<byte[]> tempData){
+        this.tempDataList = tempData;
+    }
+    
+    public void setOtherList(List<byte[]> otherList){
+        this.otherList = otherList;
+    }
+    
+    public void setSignatureID(String id){
+        this.signatureId = id;
+    }
 }

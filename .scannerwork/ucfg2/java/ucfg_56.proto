@@ -1,6 +1,6 @@
 
 @vn.mobileid.util.Utils#loadXmlDocument([B)Lorg/w3c/dom/Document; 
-“C:/Users/Admin/Documents/NetBeansProjects/File_Certificate_P12/Library_RSSP_SDK/ProjectRSSP_20230411/lib.rssp.exsig/src/vn/mobileid/util/Utils.java× ×(*"1*—
+“C:/Users/Admin/Documents/NetBeansProjects/File_Certificate_P12/Library_RSSP_SDK/ProjectRSSP_20230411/lib.rssp.exsig/src/vn/mobileid/util/Utils.java× ×(*"1*ö
 1
 Ø3 Ø(Ië
 è
@@ -17,11 +17,24 @@
 
 __unknown_file (0
 .
-%0(javax.xml.parsers.DocumentBuilderFactoryğí
+%0(javax.xml.parsers.DocumentBuilderFactoryÜÙ
 
-Ù Ù(1
+Ù Ù(b
 
-%1void">javax.xml.parsers.DocumentBuilderFactory#setNamespaceAware(Z)V*[
+%1void"Ijavax.xml.parsers.DocumentBuilderFactory#setFeature(Ljava/lang/String;Z)V*[
+
+__unknown_file (?
+=
+docBuilderFactory(javax.xml.parsers.DocumentBuilderFactory*T
+
+__unknown_file (86
+4http://apache.org/xml/features/disallow-doctype-decl* 
+
+__unknown_file (22setFeature(Ljava/lang/String;Z)ğí
+
+Ú Ú(1
+
+%2void">javax.xml.parsers.DocumentBuilderFactory#setNamespaceAware(Z)V*[
 
 __unknown_file (?
 =
@@ -29,39 +42,39 @@
 
 __unknown_file (22setNamespaceAware(Z)Š
 
-Ú% Ú(K'
-%2!javax.xml.parsers.DocumentBuilder"`javax.xml.parsers.DocumentBuilderFactory#newDocumentBuilder()Ljavax/xml/parsers/DocumentBuilder;*[
+Û% Û(K'
+%3!javax.xml.parsers.DocumentBuilder"`javax.xml.parsers.DocumentBuilderFactory#newDocumentBuilder()Ljavax/xml/parsers/DocumentBuilder;*[
 
 __unknown_file (?
 =
 docBuilderFactory(javax.xml.parsers.DocumentBuilderFactory2newDocumentBuilder()
 Š
 
-Ú Ú(L/
+Û Û(L/
 
 docBuilder!javax.xml.parsers.DocumentBuilder"__id*E
 
 __unknown_file ()
 '
-%2!javax.xml.parsers.DocumentBuilderPN
+%3!javax.xml.parsers.DocumentBuilderPN
 
-Û$ Û(8"
-%3java.io.ByteArrayInputStream"java.io.ByteArrayInputStream®
+Ü$ Ü(8"
+%4java.io.ByteArrayInputStream"java.io.ByteArrayInputStream®
 «
 
-Û  Û(=
-%4"(java.io.ByteArrayInputStream#<init>([B)V*@
+Ü  Ü(=
+%5"(java.io.ByteArrayInputStream#<init>([B)V*@
 
 __unknown_file ($
 "
-%3java.io.ByteArrayInputStream*+
+%4java.io.ByteArrayInputStream*+
 
 __unknown_file (
 
 srcbyte[]°­
 
-Û Û(>
-%5org.w3c.dom.Document"Tjavax.xml.parsers.DocumentBuilder#parse(Ljava/io/InputStream;)Lorg/w3c/dom/Document;*M
+Ü Ü(>
+%6org.w3c.dom.Document"Tjavax.xml.parsers.DocumentBuilder#parse(Ljava/io/InputStream;)Lorg/w3c/dom/Document;*M
 
 __unknown_file (1
 /
@@ -70,11 +83,11 @@ docBuilder!javax.xml.parsers.DocumentBuilder*@
 
 __unknown_file ($
 "
-%3java.io.ByteArrayInputStream2parse(Ljava/io/InputStream;)"*
+%4java.io.ByteArrayInputStream2parse(Ljava/io/InputStream;)"*
 
-Û Û(?
+Ü Ü(?
 
-%5org.w3c.dom.Document:
+%6org.w3c.dom.Document:
 
 ×+ ×(5
 srcbyte[]B"

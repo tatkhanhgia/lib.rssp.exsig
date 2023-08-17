@@ -9,8 +9,11 @@ public enum Algorithm {
     SHA1("SHA-1", "1.3.14.3.2.26"),
     SHA256("SHA-256", "2.16.840.1.101.3.4.2.1"),
     SHA384("SHA-384", "2.16.840.1.101.3.4.2.2"),
-    SHA512("SHA-512", "2.16.840.1.101.3.4.2.3");
-     
+    SHA512("SHA-512", "2.16.840.1.101.3.4.2.3"),
+    RSA("RSA",""), 
+    DSA("DSA",""),
+    ECDSA("ECDSA","");
+    
     private final String value;
     private final String oid;
 

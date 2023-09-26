@@ -209,19 +209,15 @@ import org.bouncycastle.util.encoders.Base64;
 
     abstract void generateHash(List<byte[]> dataToBeSign) throws Exception;
 
-    public int getTempDataList() {
-        return this.tempDataList.size();
+    public List<byte[]> getTempDataList() {
+        return this.tempDataList;
     }
     
     public void setTempDataList(List<byte[]> tempData){
         this.tempDataList = tempData;
-    }
-    
-    public void setOtherList(List<byte[]> otherList){
-        this.otherList = otherList;
-    }
-    
-    public void setSignatureID(String id){
-        this.signatureId = id;
+    }      
+       
+    public void setSignatureName(String name){
+        this.signatureId = name;
     }
 }
